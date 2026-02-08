@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    url("./assets/fonts/PlayfairDisplay-Regular.woff2") format("woff2"),
+    url("./assets/fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("./assets/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  margin: 0;
+  gap: 50px;
+}
+h1 {
+  font-family: "Playfair Display";
+}
+
+p {
+  font-family: "Roboto";
+}
+
+/* ------------------------ header content ------------------*/
+
+header {
+  grid-area: "header";
+  background-color: rgba(8, 145, 178);
+  background: linear-gradient(
+    to bottom right,
+    rgb(57, 113, 161) 50%,
+    white 50%
+  );
+  padding: 50px;
+  display: flex;
+}
+
+.portraits1 {
+  transform: scale(1.1);
+}
+
+.header_info {
+  background-color: white;
+  padding-left: 40px;
+  border: 2px solid grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.header.social_network_icons {
+  display: flex;
+  gap: 10px;
+  width: 20px;
+}
+
+/* ------------------------ main content ------------------*/
+
+main {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 50px;
+}
+
+.project {
+  box-shadow: 5px 5px 5px grey;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.screenshotName {
+  font-family: "Playfair Display";
+  font-size: x-large;
+  color: white;
+  margin: 10%;
+  text-align: center;
+}
+
+.project_screenshot_p1 {
+  background-color: rgba(158, 28, 28);
+}
+.project_screenshot_p2 {
+  background-color: rgba(124, 117, 202);
+}
+.project_screenshot_p3 {
+  background-color: rgba(94, 143, 77);
+}
+.project_screenshot_p4 {
+  background-color: rgba(195, 99, 180);
+}
+.project_screenshot_p5 {
+  background-color: rgba(216, 143, 57);
+}
+.project_screenshot_p6 {
+  background-color: rgba(75, 162, 210);
+}
+.project_info {
+  grid-row: 0 / 1;
+}
+
+.project_info p {
+  font-size: smaller;
+}
+
+.project_info_title {
+  display: flex;
+  flex-direction: row;
+}
+
+.project_info_title p {
+  font-size: medium;
+}
+
+.project_info_links {
+  display: grid;
+  margin-left: auto;
+  grid-template-columns: 1fr 1fr;
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* ------------------------ footer content ------------------*/
+
+footer {
+  grid-area: "footer";
+  background-color: rgba(8, 145, 178);
+  display: flex;
+  gap: 10px;
+}
+
+footer > img {
+  width: 300px;
+  transform: scale(0.9);
+}
+
+.contact_info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.telephone,
+.email {
+  display: flex;
+  justify-content: space-around;
+}
+
+.telephone > img,
+.email > img {
+  width: 30px;
+  height: 30px;
+  filter: invert();
+}
+
+.foot.social_network_icons {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
