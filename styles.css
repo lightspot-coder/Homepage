@@ -24,7 +24,6 @@ body {
     "content"
     "footer";
   margin: 0;
-  gap: 50px;
 }
 h1 {
   font-family: "Playfair Display";
@@ -38,26 +37,61 @@ p {
 
 header {
   grid-area: "header";
-  background-color: rgba(8, 145, 178);
+  display: flex;
+  justify-content: center;
   background: linear-gradient(
     to bottom right,
-    rgb(57, 113, 161) 50%,
+    rgba(8, 145, 178) 50%,
     white 50%
   );
-  padding: 50px;
+  padding: 5vw;
   display: flex;
 }
 
-.portraits1 {
+.portraits1-div {
+  position: relative;
+}
+.portraits1-img {
   transform: scale(1.1);
+}
+.portraits1-name-div > p {
+  font-family: "Playfair Display";
+  font-size: xxx-large;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+}
+
+.portraits1-name-div-hidden > p {
+  display: none;
+}
+@media (max-width: 800px) {
+  .portraits1-name-div > p {
+    display: none;
+  }
+  .portraits1-name-div-hidden > p {
+    display: block;
+    font-family: "Playfair Display";
+    font-size: xxx-large;
+    color: white;
+    padding-left: 40px;
+  }
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header_info {
   background-color: white;
   padding-left: 40px;
-  border: 2px solid grey;
+  box-shadow: 5px 5px 5px grey;
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
 .header.social_network_icons {
@@ -67,12 +101,15 @@ header {
 }
 
 /* ------------------------ main content ------------------*/
-
 main {
+  grid-area: "content";
+  margin: 5vw;
+  margin-top: 0;
+}
+.main-content {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin: 50px;
 }
 
 .project {
@@ -138,12 +175,14 @@ footer {
   grid-area: "footer";
   background-color: rgba(8, 145, 178);
   display: flex;
-  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5vw;
 }
 
 footer > img {
   width: 300px;
-  transform: scale(0.9);
+  height: 300px;
 }
 
 .contact_info {
