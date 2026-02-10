@@ -37,74 +37,114 @@ p {
 
 header {
   grid-area: "header";
-  display: flex;
-  justify-content: center;
   background: linear-gradient(
     to bottom right,
     rgba(8, 145, 178) 50%,
     white 50%
   );
-  padding: 5vw;
+}
+
+.header-container {
+  margin-top: 5vw;
+  margin-left: min(20vw, 20%);
+  margin-right: min(20vw, 20%);
+  margin-bottom: 5vw;
+}
+
+.header-content {
   display: flex;
 }
 
 .portraits1-div {
   position: relative;
 }
+.portraits1-div-hidden {
+  display: none;
+}
+
 .portraits1-img {
   transform: scale(1.1);
 }
+
+.portraits1-img-hidden {
+  display: none;
+}
+
 .portraits1-name-div > p {
   font-family: "Playfair Display";
   font-size: xxx-large;
   color: white;
   position: absolute;
   bottom: 0;
+  right: 0;
   margin: 0;
 }
 
 .portraits1-name-div-hidden > p {
   display: none;
 }
-@media (max-width: 800px) {
-  .portraits1-name-div > p {
-    display: none;
-  }
-  .portraits1-name-div-hidden > p {
-    display: block;
-    font-family: "Playfair Display";
-    font-size: xxx-large;
-    color: white;
-    padding-left: 40px;
-  }
-}
-
-.header-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .header_info {
   background-color: white;
-  padding-left: 40px;
+  padding: 40px;
   box-shadow: 5px 5px 5px grey;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 40px;
 }
 
 .header.social_network_icons {
+  padding-right: 100px;
+  float: right;
   display: flex;
   gap: 10px;
   width: 20px;
 }
 
+@media (max-width: 800px) {
+  .header-container {
+    margin-top: 10vw;
+  }
+  .portraits1-div-hidden {
+    display: block;
+    float: left;
+    transform: scale(1.4) translateX(-40px) translateY(-50px);
+    position: relative;
+  }
+
+  .portraits1-img-hidden {
+    display: block;
+  }
+  .portraits1-img {
+    display: none;
+  }
+  .header_info > h1 {
+    text-align: center;
+  }
+  .header_info > p {
+    padding-left: 10px;
+  }
+
+  .portraits1-name-div > p {
+    display: none;
+  }
+  .portraits1-name-div-hidden {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(70px) translateY(-10px);
+  }
+  .portraits1-name-div-hidden > p {
+    display: block;
+    font-family: "Playfair Display";
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+  }
+}
+
 /* ------------------------ main content ------------------*/
 main {
   grid-area: "content";
-  margin: 5vw;
-  margin-top: 0;
+  margin-left: min(20vw, 20%);
+  margin-right: min(20vw, 20%);
+  margin-bottom: 5vw;
 }
 .main-content {
   display: grid;
@@ -149,24 +189,27 @@ main {
 }
 
 .project_info p {
+  margin: 10px;
   font-size: smaller;
 }
 
 .project_info_title {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .project_info_title p {
   font-size: medium;
+  margin-left: 10px;
 }
 
 .project_info_links {
-  display: grid;
-  margin-left: auto;
-  grid-template-columns: 1fr 1fr;
-  width: 40px;
+  margin-top: 10px;
   margin-right: 10px;
+}
+.project_info_links img {
+  width: 20px;
 }
 
 /* ------------------------ footer content ------------------*/
@@ -174,18 +217,25 @@ main {
 footer {
   grid-area: "footer";
   background-color: rgba(8, 145, 178);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5vw;
 }
 
-footer > img {
-  width: 300px;
-  height: 300px;
+.footer-container {
+  margin-left: min(20vw, 20%);
+  margin-right: min(20vw, 20%);
+  margin-bottom: 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+
+.footer-container > img {
+  grid-column: 0 / 1;
+  width: 400px;
+  height: 400px;
 }
 
 .contact_info {
+  grid-column: 1 / 2;
   color: white;
   display: flex;
   flex-direction: column;
@@ -194,18 +244,21 @@ footer > img {
 .telephone,
 .email {
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
 }
 
 .telephone > img,
 .email > img {
+  align-self: center;
   width: 30px;
   height: 30px;
   filter: invert();
 }
 
 .foot.social_network_icons {
+  margin-top: 10px;
   display: flex;
+  gap: 20px;
   width: 30px;
   height: 30px;
 }
