@@ -256,7 +256,7 @@ footer {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 700px) {
   .aboutMe {
-    margin-top: 20vw;
+    margin-top: 150px;
   }
   .myPhoto {
     display: none;
@@ -313,10 +313,7 @@ footer {
     margin-right: auto;
     max-width: 1000px;
   }
-  .myPhoto-mediumSize > h1 {
-    top: 130px;
-    right: 10px;
-  }
+
   .headerDiv > .aboutMe {
     margin-left: 300px;
   }
