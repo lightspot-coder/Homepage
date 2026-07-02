@@ -23,8 +23,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1/3fr 1fr 1/3fr;
-  width: 90vw;
-  margin: 5vw;
+  margin: 0;
 }
 
 h1,
@@ -37,54 +36,87 @@ a {
 }
 
 /* --------------------------------------- header --------------------------------- */
+
 header {
+  background: linear-gradient(
+    to bottom right,
+    rgba(8, 145, 178) 50%,
+    white 50%
+  );
+}
+.headerDiv {
   grid-row: 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+  display: block;
 }
 
-header > .myPhoto {
+.headerDiv > .myPhoto {
   position: relative;
   background: url("./assets/img/portraits_1.jpg");
   background-size: cover;
 }
 
-header > .myPhoto > h1 {
+.headerDiv > .aboutMe > .myPhoto {
+  position: relative;
+  background: url("./assets/img/portraits_1.jpg");
+  background-size: cover;
+}
+.myPhoto-mediumSize {
+  background: url("./assets/img/portraits_1.jpg");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.myPhoto-mediumSize > h1 {
+  color: white;
+  position: absolute;
+}
+
+.headerDiv > .myPhoto > h1 {
   position: absolute;
   color: white;
 }
 
-header > .headerLinks {
+.headerDiv > .aboutMe {
+  background-color: white;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.headerDiv > .aboutMe > .myPhoto > h1 {
+  position: relative;
+
+  color: white;
+}
+
+.headerDiv > .headerLinks {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-header > .headerLinks > a > img {
-  width: 5vw;
-  height: 5vh;
+.headerDiv > .headerLinks > a > img {
+  width: 40px;
+  height: 40px;
 }
 
 /* --------------------------------------- main --------------------------------- */
 
-main {
-  margin-top: 10vw;
+.mainDiv {
   grid-row: 2 / span 1;
 }
 
-main > h2 {
+.mainDiv > h2 {
   text-align: center;
 }
 
-main > .myProjects {
+.mainDiv > .myProjects {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-main > .myProjects > .project {
-  margin-top: 5vw;
+.mainDiv > .myProjects > .project {
+  margin-top: 10px;
   box-shadow: 5px 5px 5px grey;
   width: 300px;
   height: 400px;
@@ -93,20 +125,20 @@ main > .myProjects > .project {
   justify-content: space-around;
 }
 
-main > .myProjects > .project > img {
+.mainDiv > .myProjects > .project > img {
   align-self: center;
   width: 200px;
   height: 200px;
 }
 
-main > .myProjects > .project > .projectInfo {
+.mainDiv > .myProjects > .project > .projectInfo {
   position: relative;
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-main > .myProjects > .project > .projectInfo > .projectLinks {
+.mainDiv > .myProjects > .project > .projectInfo > .projectLinks {
   position: absolute;
   top: 10px;
   right: 0;
@@ -121,32 +153,51 @@ main > .myProjects > .project > .projectInfo > .projectLinks {
 
 /* --------------------------------------- footer --------------------------------- */
 footer {
-  margin-top: 10vw;
-  grid-row: 3 / span 1;
+  margin-top: 20px;
   background-color: rgba(8, 145, 178);
+}
+.footerDiv {
+  grid-row: 3 / span 1;
   color: white;
   padding: 20px;
 }
+.footerDiv > .contactMe {
+  display: flex;
+}
 
-footer > .telephone > img {
+.footerDiv > .contactMe > h1 {
+  margin: 0;
+  padding: 10px;
+  padding-left: 0;
+}
+
+.footerDiv > .contactMe > .telephone > img {
   width: 20px;
   height: 20px;
   filter: invert();
 }
 
-footer > .email > img {
+.footerDiv > .contactMe > .email > img {
   width: 20px;
   height: 20px;
   filter: invert();
 }
 
-footer > .footerLinks > a > img {
+.footerDiv > .contactMe > .footerLinks {
+  margin: 20px;
+}
+
+.footerDiv > .contactMe > .footerLinks > a {
+  margin: 20px;
+}
+
+.footerDiv > .contactMe > .footerLinks > a > img {
   width: 40px;
   height: 40px;
   filter: invert();
 }
 
-footer > img {
+.footerDiv > img {
   width: 300px;
   height: 300px;
 }
@@ -155,67 +206,135 @@ footer > img {
 
 /* Extra small devices (phones, 600px and down) */
 
-@media only screen and (max-width: 600px) {
-  header > .myPhoto {
+@media only screen and (max-width: 700px) {
+  .myPhoto-mediumSize {
+    display: none;
+  }
+  .headerDiv,
+  .mainDiv,
+  .footerDiv {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .headerDiv > .myPhoto {
     margin: auto;
     width: 200px;
     height: 200px;
   }
-  header > .myPhoto > h1 {
+  .headerDiv > .myPhoto > h1 {
     bottom: 0;
     right: 10px;
   }
-  header > .aboutMe {
+  .headerDiv > .aboutMe {
+    align-self: center;
     text-align: center;
+    width: 300px;
+    margin: auto;
   }
-  main {
-  }
-  footer {
+
+  .footerDiv {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
-  footer > h1 {
+  .footerDiv > .contactMe {
+    flex-direction: column;
+  }
+
+  .footerDiv > .contactMe > h1 {
     text-align: center;
   }
-  footer > .footerLinks {
+  .footerDiv > .contactMe > .footerLinks {
     align-self: center;
+  }
+  .footerDiv > * {
+    align-self: center;
+    text-align: center;
+    width: 300px;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 600px) {
-  header {
-    background-color: rgb(255, 8, 0);
+@media only screen and (min-width: 700px) {
+  .aboutMe {
+    margin-top: 20vw;
   }
-  header > .myPhoto {
-    width: 550px;
-    height: 550px;
+  .myPhoto {
+    display: none;
   }
-  main {
+  .myPhoto-mediumSize {
+    display: block;
+    float: left;
+    position: relative;
+    transform: scale(1.4) translateX(-40px) translateY(-50px);
   }
-  main > .myProjects {
+  .myPhoto-mediumSize > h1 {
+    top: 0;
+    right: -140px;
+  }
+  .headerDiv,
+  .mainDiv,
+  .footerDiv {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    max-width: 700px;
+  }
+
+  .headerDiv > .aboutMe {
+    width: 500px;
+    margin-left: auto;
+    height: 300px;
+  }
+
+  .headerDiv > .headerLinks {
+    transform: translateX(-70px) translateY(-100px);
+  }
+  .mainDiv > .myProjects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 5vw;
+    column-gap: 10px;
   }
-  footer {
-    background-color: rgb(225, 0, 255);
+  .footerDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .footerDiv > .contactMe {
+    display: flex;
+    flex-direction: column;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  header {
-    background-color: rgb(255, 0, 149);
+  .headerDiv,
+  .mainDiv,
+  .footerDiv {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
   }
-  header > .myPhoto {
-    width: 550px;
-    height: 550px;
+  .myPhoto-mediumSize > h1 {
+    top: 130px;
+    right: 10px;
   }
-  main {
+  .headerDiv > .aboutMe {
+    margin-left: 300px;
   }
-  footer {
-    background-color: aqua;
+  .headerDiv > .headerLinks {
+    transform: translateX(-70px) translateY(-100px);
+  }
+  .mainDiv > .myProjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 10px;
+  }
+  .footerDiv {
+    justify-content: space-around;
+  }
+  .footerDiv > .contactMe {
+    margin-left: 50px;
+  }
+  .footerDiv > img {
+    margin-right: 100px;
   }
 }
